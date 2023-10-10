@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>                                                   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>   
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <title>Weather</title>  
+    <meta name="keywords" content="HTML , CSS , JavaScript , weather , city , state , temperature , humidity , sunrise , sunset , latitude , longitude , Timezone"/>                   
+    <meta name="description" content="Weather"/>                   
+    <meta name="author" content="sina naseri"/>                              
+    <link rel="stylesheet" href="./lib/bootstrap.min.css"/>     
+    <link rel="stylesheet" href="./lib/bootstrap-reboot.min.css">  
+    <link rel="stylesheet" href="./lib/jquery.mCustomScrollbar.min.css">                                  
+    <link rel="stylesheet" href="./style.css"/>
+  </head>
+  <body>
+    <!-- overlay start -->
+    <div class="overlay d-flex justify-content-center align-items-center"> 
+        <span class="loader"></span>
+    </div>
+    <!-- overlay end -->
+    <!-- Sidebar strat -->          
+    <a class="navbar-btn">
+        <i class="fa fa-bars"></i>
+    </a>
+    <nav class="sidebar">
+        <div class="position-absolute" id="particles-star"></div>
+        <div class="position-absolute" id="particles-meteorite"></div>
+        <div class="sideba-header text-center">
+        <div class="navbar-header">
+            <a class="navbar-brand text-warning mt-2 ml-3" href="#">Weather</a>
+        </div>
+        <div class="owner my-3">
+            <img src="./img/photo_2023-03-01_19-05-33.jpg" alt="">
+            <h4 class="mt-2 text-white">Sina Naseri</h4>
+        </div>
+        <div class="filter mx-2">
+            <div class="input-group my-3">
+                <input type="text" class="form-control border-right-0" placeholder="Search">
+                <div class="input-group-append bg-white text-dark d-flex justify-content-center align-items-center">
+                    <i class="fa fa-search mx-2"></i>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="sidebar-main">
+            <div class="list-group">
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="icon">Icon<input class="Icon custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="city">City<input class="City custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="type of weather">Type<input class="Type custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="Weather severity %">Weather Severity<input class="Weather_Severity custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="climatic condition">Description<input class="Description custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="weather condition id">Condition<input class="Condition custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="wind speed meter/sec">Wind Speed<input class="Wind_Speed custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="wind direction, degrees (meteorological)">Wind Deg<input class="Wind_Deg custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="temperature: Kelvin">Temperature<input class="Temperature custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="temperature for the human perception">Feels Like<input class="Feels_Like custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="humidity %">Humidity<input class="Humidity custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="atmospheric pressure on the sea level, hPa">Pressure<input class="Pressure custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="sunrise time, unix, UTC">Sunrise<input class="Sunrise custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="sunset time, unix, UTC">Sunset<input class="Sunset custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="geo location, latitude">Latitude<input class="Latitude custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="Geo location, longitude">Longitude<input class="Longitude custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="country code (GB, JP etc.)">Country<input class="Country custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="shift in seconds from UTC">Timezone<input class="Timezone custom-radio checked float-right mt-2" type="radio"></a>
+              <a href="#" class="list-group-item" data-toggle="tooltip" data-placement="right" title="visibility, meter. the maximum value of the visibility is 10 km">Visibility<input class="Visibility custom-radio checked float-right mt-2" type="radio"></a>
+            </div>
+        </div>
+        <hr>
+        <div class="sidebar-footer mt-4">
+            <h4 class="text-white text-center">Contact me</h4>
+            <ul class="social d-flex mt-3">
+                <li class="ml-4" data-toggle="tooltip" data-placement="top" title="Telegram"><a href="https://telegram.me/Trader_1372"><i class="mt-1 fa fa-telegram"></i></a></li>
+                <li class="ml-5" data-toggle="tooltip" data-placement="top" title="Instagram"><a href="https://www.instagram.com/sina_72448/"><i class="mt-1 fa fa-instagram"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Sidebar end -->
+    <div class="content">
+        <div class="mt-5 mx-sm-5 mx-2">
+            <div class="d-flex">
+                <div class="flex-fill">
+                    <input type="text" id="state" class="form-control" placeholder="State">
+                </div>
+                <div class="flex-fill mx-2">
+                    <input type="text" id="city" class="form-control" placeholder="City">
+                </div>
+                <div>
+                    <button class="btn btn-dark px-3" id="w-change-btn"> Go </button> 
+                </div>
+            </div>
+            <div class="card bg-white rounded shadow-sm mt-5 p-3">
+                <p class="d-flex justify-content-center"><span></span><img class="Icon" alt=""></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>City : </span><span class="font-weight-bolder City"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Type : </span><span class="font-weight-bolder Type"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Weather Severity : </span><span class="font-weight-bolder Weather_Severity"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Description : </span><span class="font-weight-bolder Description"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Condition : </span><span class="font-weight-bolder Condition"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Wind Speed : </span><span class="font-weight-bolder Wind_Speed"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Wind Deg : </span><span class="font-weight-bolder Wind_Deg"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Temperature : </span><span class="font-weight-bolder Temperature"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Feels Like : </span><span class="font-weight-bolder Feels_Like"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Humidity : </span><span class="font-weight-bolder Humidity"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Pressure : </span><span class="font-weight-bolder Pressure"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Sunrise : </span><span class="font-weight-bolder Sunrise"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Sunset : </span><span class="font-weight-bolder Sunset"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Latitude : </span><span class="font-weight-bolder Latitude"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Longitude : </span><span class="font-weight-bolder Longitude"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Country : </span><span class="font-weight-bolder Country"></span></p>
+                <p class="border-bottom pb-3 d-flex justify-content-between"><span>Timezone : </span><span class="font-weight-bolder Timezone"></span></p>
+                <p class="d-flex justify-content-between"><span>Visibility : </span><span class="font-weight-bolder Visibility"></span></p>
+            </div>
+        </div>
+    </div>
+    <script src="./lib/jquery-3.2.1.min.js"></script>
+    <script src="./lib/popper.min.js"></script>
+    <script src="./lib/bootstrap.bundle.min.js"></script>
+    <script src="./lib/font-awesome.min.js"></script>
+    <script src="./lib/particles.js"></script>
+    <script src="./lib/particlesOption.js"></script>
+    <script src="./lib/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="./script.js"></script> 
+  </body>
+</html>
